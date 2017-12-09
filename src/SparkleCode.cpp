@@ -1,5 +1,7 @@
 // copyright 2017
 #include "SparkleCode.h"
+#include "Expr.h"
+#include "AstPrinter.h"
 
 void SparkleCode::runFile(std::string path) {
   std::ifstream in(path, std::ios::in | std::ios::binary);
@@ -20,14 +22,14 @@ void SparkleCode::runFile(std::string path) {
 }
 
 void SparkleCode::runPrompt() {
-  Expr expression = Binary(
-    Unary(
+  Expr* expression = new Binary(
+    new Unary(
       Token(MINUS, "-", 1),
       new Literal("123")),
     Token(STAR, "*", 1),
     new Grouping(new Literal("45.67")));
 
-  expression.accept(AstPrinter());
+  std::cout << AstPrinter().print(expression);
 
   std::string response;
   while (true) {

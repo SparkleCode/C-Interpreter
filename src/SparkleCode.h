@@ -5,7 +5,6 @@
 #include <fstream>
 #include "./scanner/Scanner.h"
 #include "./scanner/Token.h"
-#include "./AstPrinter.h"
 
 class SparkleCode {
  public:

@@ -6,37 +6,44 @@
 #include <iostream>
 #include "./Expr.h"
 
-class AstPrinter : public IVisitExprString {
+class AstPrinter : public IVisitExpr {
+  private:
+  std::stringstream out;
+
  public:
-  std::string parenthesise(std::string name, Expr*& e1) {
-    std::ostringstream os;
-    os << "(" << name;
-    os << " " << e1->accept(this);
-    os << ")";
-    return os.str();
-  }
-  std::string parenthesise(std::string name, Expr*& e1, Expr*& e2) {
-    std::ostringstream os;
-    os << "(" << name;
-    os << " " << e1->accept(this);
-    os << " " << e2->accept(this);
-    os << ")";
-    return os.str();
+  std::string print(Expr* e) {
+    out.clear();
+    e->accept(this);
+    return out.str();
   }
 
-  std::string visitBinaryExpr(Binary* expr) {
-    return parenthesise(expr->op.lexeme, expr->left, expr->right);
+  void parenthesise(std::string name, Expr* e1) {
+    out << "(" << name;
+    e1->accept(this);
+    out << ")";
   }
 
-  std::string visitGroupingExpr(Grouping* expr) {
-    return parenthesise("group", expr->expression);
+  std::string parenthesise(std::string name, Expr* e1, Expr* e2) {
+    out << "(" << name << " ";
+    e1->accept(this);
+    out << " ";
+    e2->accept(this);
+    out << ")";
   }
 
-  std::string visitLiteralExpr(Literal* expr) {
-    return expr->value;
+  void visitBinaryExpr(Binary* expr) {
+    parenthesise(expr->op.lexeme, expr->left, expr->right);
   }
 
-  std::string visitUnaryExpr(Unary* expr) {
-    return parenthesise(expr->op.lexeme, expr->right);
+  void visitGroupingExpr(Grouping* expr) {
+    parenthesise("group", expr->expression);
+  }
+
+  void visitLiteralExpr(Literal* expr) {
+    out << expr->value;
+  }
+
+  void visitUnaryExpr(Unary* expr) {
+    parenthesise(expr->op.lexeme, expr->right);
   }
 };

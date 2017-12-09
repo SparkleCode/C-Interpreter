@@ -1,110 +1,99 @@
+"""
+generate ast classes
+"""
 import sys
-def defineType(file, baseName, className, fieldList, visitorTypes, lentypes):
-	file.write("\n")
-	file.write("class " + className + " : public " + baseName + " {\n")
 
-	file.write(" public:\n")
+def define_type(file, base_name, class_name, field_list):
+    """
+    write type class to file
+    """
+    file.write("\n")
+    file.write("class " + class_name + " : public " + base_name + " {\n")
 
-	# field definitions
-	fields = fieldList.split(', ')
-	for field in fields:
-		if " " in field:
-			file.write("  " + field + ";\n")
-		else:
-			file.write("  Expr* " + field + ";\n")
+    file.write(" public:\n")
 
-	file.write("\n")
+    # field definitions
+    fields = field_list.split(', ')
+    for field in fields:
+        if " " in field:
+            file.write("  " + field + ";\n")
+        else:
+            file.write("  Expr* " + field + ";\n")
 
-	# constructor
-	depth = len([x.strip() for x in fields if(" " not in x.strip())])
-	for i in range(pow(lentypes, depth)):
-		if len(fields) == 1:
-			file.write("  explicit ")
-		else:
-			file.write("  ")
-		file.write(className + "(")
-		for j,f in enumerate(fields):
-			if " " in f:
-				file.write(f)
-			if not j == len(fields)-1:
-				file.write(", ")
-		file.write(") {\n")
+    file.write("\n")
 
-		# store parameters in fields
-		for field in fields:
-			name = field.split(" ")[-1]
-			file.write("    this->" + name + " = " + name + ";\n")
-		file.write("  }\n")
+    # constructor
+    file.write("  " + class_name + "(" + field_list + ") {\n")
+    # store parameters in fields
+    for field in fields:
+        name = field.split(" ")[-1]
+        file.write("    this->" + name + " = " + name + ";\n")
+    file.write("  }\n")
 
-	# visitor
-	for t in visitorTypes:
-		typeClass = t.split(':', 1)[1].strip()
-		typeName = t.split(':', 1)[0].strip()
-		file.write("\n")
-		file.write("  " + typeClass + " accept(IVisit" + baseName + typeName + "* visitor) override {\n")
-		file.write("    std::cout << \"" + className + "\" << std::endl;\n")
-		file.write("    return visitor->visit" + className + baseName + "(this);\n")
-		file.write("  }\n")
+    # visitor
+    file.write('\n')
+    file.write("  void accept(IVisit" + base_name + "* visitor) {\n")
+    file.write("    visitor->visit" + class_name + base_name + "(this);\n")
+    file.write("  }\n")
 
-	file.write("};\n")
+    file.write("};\n")
 
-def defineVisitor(file, baseName, types, visitorTypes):
-	file.write("\n")
+def define_visitor(file, base_name, types):
+    """
+    write visitor interface to file
+    """
+    file.write("\n")
 
-	# forward defs
-	for line in types:
-		className = line.split(':', 1)[0].strip()
-		file.write("class " + className + ";\n")
+    # forward defs
+    for line in types:
+        class_name = line.split(':', 1)[0].strip()
+        file.write("class " + class_name + ";\n")
 
-	for t in visitorTypes:
-		typeClass = t.split(':', 1)[1].strip()
-		typeName = t.split(':', 1)[0].strip()
+    # interface
+    file.write("\n")
+    file.write("class IVisit" + base_name + " {\n")
+    file.write(" public:\n")
+    for line in types:
+        class_name = line.split(':', 1)[0].strip()
+        file.write("  virtual void visit" + class_name + base_name + "(")
+        file.write(class_name + "* " + base_name.lower() + ") = 0;\n")
+    file.write("};\n")
 
-		file.write("\n")
-		file.write("class IVisit" + baseName + typeName + " {\n")
-		file.write(" public:\n")
-		for line in types:
-			className = line.split(':', 1)[0].strip()
-			file.write("  virtual " + typeClass + " visit" + className + baseName + "(")
-			file.write(className + "* " + baseName.lower() + ") = 0;\n")
-		file.write("};\n")
+def define_ast(base_name, types):
+    """
+    generate ast from list of types
+    """
+    file = open(sys.argv[1] + '/' + base_name + '.h', "w")
 
-def defineAst(baseName, types, visitorTypes):
-	file = open(sys.argv[1] + '/' + baseName + '.h', "w")
+    file.write("// generate file\n")
+    file.write("// copyright 2017\n")
+    file.write("#pragma once\n")
+    file.write("#include <vector>\n")
+    file.write("#include <string>\n")
+    file.write("#include <iostream>\n")
+    file.write('#include "./scanner/token.h"\n')
 
-	file.write("// generate file\n")
-	file.write("// copyright 2017\n")
-	file.write("#pragma once\n")
-	file.write("#include <vector>\n")
-	file.write("#include <string>\n")
-	file.write("#include <iostream>\n")
+    define_visitor(file, base_name, types)
 
-	defineVisitor(file, baseName, types, visitorTypes)
+    file.write("\n")
+    file.write("class " + base_name + " {\n")
+    file.write("  // abstract base class for " + base_name + "\n")
+    file.write(" public:\n")
+    file.write("  virtual void accept(IVisit" + base_name + "* visitor) = 0;\n")
+    file.write("};\n")
 
-	file.write("\n")
-	file.write("class " + baseName + " {\n")
-	file.write("  // abstract base class for " + baseName + "\n")
-	file.write(" public:\n")
-	for t in visitorTypes:
-		typeClass = t.split(':', 1)[1].strip()
-		typeName = t.split(':', 1)[0].strip()
-		file.write("  virtual " + typeClass + " accept(IVisit" + baseName + typeName + "* visitor) = 0;\n")
-	file.write("};\n")
+    for line in types:
+        class_name = line.split(':', 1)[0].strip()
+        fields = line.split(':', 1)[1].strip()
+        define_type(file, base_name, class_name, fields)
 
-	for line in types:
-		className = line.split(':', 1)[0].strip()
-		fields = line.split(':', 1)[1].strip()
-		defineType(file, baseName, className, fields, visitorTypes, len(types))
+    file.close()
 
-	file.close();
-
-command = [
-	"Binary   : left, Token op, right",
-	"Grouping : expression",
-	"Literal  : std::string value",
-	"Unary    : Token op, right"
+COMMANDS = [
+    "Binary   : Expr* left, Token op, Expr* right",
+    "Grouping : Expr* expression",
+    "Literal  : std::string value",
+    "Unary    : Token op, Expr* right"
 ]
-visitorTypes = [
-	"String : std::string",
-]
-defineAst("Expr", command, visitorTypes)
+
+define_ast("Expr", COMMANDS)
