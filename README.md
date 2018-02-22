@@ -2,13 +2,13 @@
 # DO NOT USE
 # SEE https://github.com/SparkleCode/vm
 
-~~# Sparkle Code
+~~# Sparkle Code~~
 
-## building
+~~## building
 build using cmake - only tested on windows 10.
-Build also requires python 3.0+ on the path as python
+Build also requires python 3.0+ on the path as python~~
 
-# Features
+~~# Features
 continuations
 decorators
 dynamic typing
@@ -24,16 +24,16 @@ module system
 multiple return, assignment
 operators are functions
 strong typing
-traits
+traits~~
 
-# inspiration
+~~# inspiration
 ruby
 rust
 python
 c++
-javascript
+javascript~~
 
-# implementation stages
+~~# implementation stages
 ## 1 - core language
  - continuations
  - infinite recursion
@@ -41,9 +41,9 @@ javascript
  - dynamic typing
  - first class functions
  - keyword arguments
- - operators are functions
+ - operators are functions~~
 
-## 2 - syntaxical additions
+~~## 2 - syntaxical additions
  - const
  - protected, public, private
  - string interpolation
@@ -56,19 +56,19 @@ javascript
  - exeptions
  - decorators
  - traits
- - operator definition
+ - operator definition~~
 
-## 3 - standard library
+~~## 3 - standard library
  - functional
- - hashmaps
+ - hashmaps~~
 
-## 4 - Future
+~~## 4 - Future
  - pattern matching
  - bignums
  - grapheme cluster strings
- - function overloading and operator overloading
+ - function overloading and operator overloading~~
 
-# examples ~~
+~~# examples ~~
 ```
 print("hello, world");
 
