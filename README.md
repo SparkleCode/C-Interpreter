@@ -1,70 +1,76 @@
-# Sparkle Code
+# THIS DOES NOT WORK
+# DO NOT USE
+# SEE https://github.com/SparkleCode/vm
 
-## building
-build using cmake - only tested on windows 10.
-Build also requires python 3.0+ on the path as python
+~~# Sparkle Code~~
 
-# Features
-continuations
-decorators
-dynamic typing
-exeptions
-extension methods
-first class functions
-functional
-functions can be called infix
-hashmaps
-infinite recursion
-keyword arguments
-module system
-multiple return, assignment
-operators are functions
-strong typing
-traits
+~~## building~~
+~~build using cmake - only tested on windows 10.~~
+~~Build also requires python 3.0+ on the path as python~~
 
-# inspiration
-ruby
-rust
-python
-c++
-javascript
+~~# Features~~
+~~continuations~~
+~~decorators~~
+~~dynamic typing~~
+~~exeptions~~
+~~extension methods~~
+~~first class functions~~
+~~functional~~
+~~functions can be called infix~~
+~~hashmaps~~
+~~infinite recursion~~
+~~keyword arguments~~
+~~module system~~
+~~multiple return, assignment~~
+~~operators are functions~~
+~~strong typing~~
+~~traits~~
 
-# implementation stages
-## 1 - core language
- - continuations
- - infinite recursion
- - strong typing
- - dynamic typing
- - first class functions
- - keyword arguments
- - operators are functions
+~~# inspiration~~
+~~ruby~~
+~~rust~~
+~~python~~
+~~c++~~
+~~javascript~~
 
-## 2 - syntaxical additions
- - const
- - protected, public, private
- - string interpolation
- - split functions
- - adding operators
- - functions can be called infix
- - multiple return, assignment
- - extension methods
- - module system
- - exeptions
- - decorators
- - traits
- - operator definition
+~~# implementation stages~~
+~~## 1 - core language~~
+  - ~~continuations~~
+  - ~~infinite recursion~~
+  - ~~strong typing~~
+  - ~~dynamic typing~~
+  - ~~first class functions~~
+  - ~~keyword arguments~~
+  - ~~operators are functions~~
 
-## 3 - standard library
- - functional
- - hashmaps
+~~## 2 - syntaxical additions~~
+  - ~~const~~
+  - ~~protected, public, private~~
+  - ~~string interpolation~~
+  - ~~split functions~~
+  - ~~adding operators~~
+  - ~~functions can be called infix~~
+  - ~~multiple return, assignment~~
+  - ~~extension methods~~
+  - ~~module system~~
+  - ~~exeptions~~
+  - ~~decorators~~
+  - ~~traits~~
+  - ~~operator definition~~
 
-## 4 - Future
- - pattern matching
- - bignums
- - grapheme cluster strings
- - function overloading and operator overloading
+~~## 3 - standard library~~
+  - ~~functional~~
+  - ~~hashmaps~~
 
-# examples 
+~~## 4 - Future~~
+  - ~~pattern matching~~
+  - ~~bignums~~
+  - ~~grapheme cluster strings~~
+  - ~~function overloading and operator overloading~~
+
+
+
+<!--
 ```
 print("hello, world");
 
@@ -218,3 +224,4 @@ let y = x(); // y is array
 let a, b = x(); // a is 5, b is 6
 a, b = b, a // swap values - a and b already defined so let is not needed
 ```
+-->
