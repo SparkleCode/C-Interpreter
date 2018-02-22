@@ -68,7 +68,7 @@
   - ~~grapheme cluster strings~~
   - ~~function overloading and operator overloading~~
 
-~~# examples ~~
+~~# examples ~~<!--
 ```
 print("hello, world");
 
@@ -222,3 +222,4 @@ let y = x(); // y is array
 let a, b = x(); // a is 5, b is 6
 a, b = b, a // swap values - a and b already defined so let is not needed
 ```
+-->
