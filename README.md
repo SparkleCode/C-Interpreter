@@ -4,69 +4,69 @@
 
 ~~# Sparkle Code~~
 
-~~## building
-build using cmake - only tested on windows 10.
-Build also requires python 3.0+ on the path as python~~
+~~## building~~
+~~build using cmake - only tested on windows 10.~~
+~~Build also requires python 3.0+ on the path as python~~
 
-~~# Features
-continuations
-decorators
-dynamic typing
-exeptions
-extension methods
-first class functions
-functional
-functions can be called infix
-hashmaps
-infinite recursion
-keyword arguments
-module system
-multiple return, assignment
-operators are functions
-strong typing
-traits~~
+~~# Features~~
+~~continuations~~
+~~decorators~~
+~~dynamic typing~~
+~~exeptions~~
+~~extension methods~~
+~~first class functions~~
+~~functional~~
+~~functions can be called infix~~
+~~hashmaps~~
+~~infinite recursion~~
+~~keyword arguments~~
+~~module system~~
+~~multiple return, assignment~~
+~~operators are functions~~
+~~strong typing~~
+~~traits~~
 
-~~# inspiration
-ruby
-rust
-python
-c++
-javascript~~
+~~# inspiration~~
+~~ruby~~
+~~rust~~
+~~python~~
+~~c++~~
+~~javascript~~
 
-~~# implementation stages
-## 1 - core language
- - continuations
- - infinite recursion
- - strong typing
- - dynamic typing
- - first class functions
- - keyword arguments
- - operators are functions~~
+~~# implementation stages~~
+~~## 1 - core language~~
+~~ - continuations~~
+~~ - infinite recursion~~
+~~ - strong typing~~
+~~ - dynamic typing~~
+~~ - first class functions~~
+~~ - keyword arguments~~
+~~ - operators are functions~~
 
-~~## 2 - syntaxical additions
- - const
- - protected, public, private
- - string interpolation
- - split functions
- - adding operators
- - functions can be called infix
- - multiple return, assignment
- - extension methods
- - module system
- - exeptions
- - decorators
- - traits
- - operator definition~~
+~~## 2 - syntaxical additions~~
+~~ - const~~
+~~ - protected, public, private~~
+~~ - string interpolation~~
+~~ - split functions~~
+~~ - adding operators
+~~ - functions can be called infix~~
+~~ - multiple return, assignment~~
+~~ - extension methods~~
+~~ - module system~~
+~~ - exeptions~~
+~~ - decorators~~
+~~ - traits~~
+~~ - operator definition~~
 
-~~## 3 - standard library
- - functional
- - hashmaps~~
+~~## 3 - standard library~~
+~~ - functional~~
+~~ - hashmaps~~
 
-~~## 4 - Future
- - pattern matching
- - bignums
- - grapheme cluster strings
- - function overloading and operator overloading~~
+~~## 4 - Future~~
+~~ - pattern matching~~
+~~ - bignums~~
+~~ - grapheme cluster strings~~
+~~ - function overloading and operator overloading~~
 
 ~~# examples ~~
 ```
