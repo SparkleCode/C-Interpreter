@@ -35,38 +35,38 @@
 
 ~~# implementation stages~~
 ~~## 1 - core language~~
-~~ - continuations~~
-~~ - infinite recursion~~
-~~ - strong typing~~
-~~ - dynamic typing~~
-~~ - first class functions~~
-~~ - keyword arguments~~
-~~ - operators are functions~~
+  - ~~continuations~~
+  - ~~infinite recursion~~
+  - ~~strong typing~~
+  - ~~dynamic typing~~
+  - ~~first class functions~~
+  - ~~keyword arguments~~
+  - ~~operators are functions~~
 
 ~~## 2 - syntaxical additions~~
-~~ - const~~
-~~ - protected, public, private~~
-~~ - string interpolation~~
-~~ - split functions~~
-~~ - adding operators
-~~ - functions can be called infix~~
-~~ - multiple return, assignment~~
-~~ - extension methods~~
-~~ - module system~~
-~~ - exeptions~~
-~~ - decorators~~
-~~ - traits~~
-~~ - operator definition~~
+  - ~~const~~
+  - ~~protected, public, private~~
+  - ~~string interpolation~~
+  - ~~split functions~~
+  - ~~adding operators~~
+  - ~~functions can be called infix~~
+  - ~~multiple return, assignment~~
+  - ~~extension methods~~
+  - ~~module system~~
+  - ~~exeptions~~
+  - ~~decorators~~
+  - ~~traits~~
+  - ~~operator definition~~
 
 ~~## 3 - standard library~~
-~~ - functional~~
-~~ - hashmaps~~
+  - ~~functional~~
+  - ~~hashmaps~~
 
 ~~## 4 - Future~~
-~~ - pattern matching~~
-~~ - bignums~~
-~~ - grapheme cluster strings~~
-~~ - function overloading and operator overloading~~
+  - ~~pattern matching~~
+  - ~~bignums~~
+  - ~~grapheme cluster strings~~
+  - ~~function overloading and operator overloading~~
 
 ~~# examples ~~
 ```
