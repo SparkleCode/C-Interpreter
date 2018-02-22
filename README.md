@@ -1,4 +1,8 @@
-# Sparkle Code
+# THIS DOES NOT WORK
+# DO NOT USE
+# SEE https://github.com/SparkleCode/vm
+
+~~# Sparkle Code
 
 ## building
 build using cmake - only tested on windows 10.
@@ -64,7 +68,7 @@ javascript
  - grapheme cluster strings
  - function overloading and operator overloading
 
-# examples 
+# examples ~~
 ```
 print("hello, world");
 
